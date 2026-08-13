@@ -1,0 +1,156 @@
+/* Page background */
+body {
+  background-color: #ffffff; /* plain white background */
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Navbar */
+.navbar {
+  background: linear-gradient(90deg, #88e5f1, #beecf2); /* aqua to teal */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.navbar-brand {
+  font-weight: bold;
+  color: #1c1c1c !important;
+}
+
+.nav-link {
+  color: rgb(20, 19, 19) !important;
+  transition: color 0.3s ease;
+  font-weight: 500;
+}
+
+.nav-link:hover {
+  color: rgb(105, 105, 104) !important; /* deep teal hover */
+}
+.weight {
+    font-weight: 450 !important;
+}
+/* Banner */
+header {
+  background-color: #f0fdfd; /* very light aqua tint */
+  border-radius: 12px;
+  padding: 3rem 1rem;
+  margin-top: 1rem;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+header h1 {
+  color: #00796b; /* teal heading */
+  font-weight: 700;
+}
+
+header p {
+  color: #004d40; /* deep teal text */
+  font-size: 1.2rem;
+}
+
+/* Employee cards */
+.employee-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 12px;
+  border: 2px solid #80deea; /* aqua border */
+  overflow: hidden;
+  background-color: #ffffff; /* white card background */
+}
+
+.employee-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  border-color: #00acc1; /* teal highlight */
+}
+
+.employee-card .card-body {
+  background-color: #f9fdfd; /* subtle aqua tint */
+  border-radius: 10px;
+  padding: 1.2rem;
+}
+
+.employee-card h4 {
+  font-weight: bold;
+  color: #00796b; /* teal heading */
+}
+
+.employee-card p {
+  margin-bottom: 0.6rem;
+  color: #004d40; /* deep teal text */
+}
+.banner {
+  color: #00796b; /* teal heading */
+  font-weight: 500;
+}
+/* Card styling */
+.employee-form-card {
+  border: 2px solid #80deea; /* aqua border */
+  border-radius: 12px;
+  background-color: #ffffff;
+  width: 50%;
+  margin-left: 300px;
+}
+
+.bg-aqua {
+  background: linear-gradient(90deg, #4dd0e1, #00acc1); /* aqua gradient */
+  color: #fff;
+  border-radius: 12px 12px 0 0;
+}
+
+/* Inputs */
+.form-control,
+.form-select {
+  border: 2px solid #b2ebf2;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: #00acc1;
+  box-shadow: 0 0 6px rgba(0, 172, 193, 0.4);
+}
+
+/* Button */
+.btn-aqua {
+  background-color: #4dd0e1;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-aqua:hover {
+  background-color: #00acc1;
+}
+.mrt-table {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.mrt-table th {
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.single {
+  width: 30%;
+  margin-left: 450px;
+  transition: 0.3sec;
+  border-radius: 50px;
+}
+.single:hover {
+ transform: translateY(-8px);
+ border: 2px solid skyblue;
+ border-radius: 50px;
+}
+@media screen and (min-width:320px) and (max-width:460px) {
+  .employee-form-card {
+  width: 100%;
+  margin-left: 0px !important;
+}
+.single {
+  width: 100%;
+  margin-left: 0px;
+}
+.singletitle {
+  color: #80deea !important;
+}
+}
