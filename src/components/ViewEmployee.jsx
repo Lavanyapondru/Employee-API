@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Navbar from "./Navabr"; 
 import { MaterialReactTable } from "material-react-table";
 import { useNavigate } from "react-router-dom";
+import Footer from "./Footer";
 
 function ViewEmployee() {
   const [employees, setEmployees] = useState([]);
@@ -132,6 +133,9 @@ function ViewEmployee() {
             }}
           />
         )}
+      </div>
+      <div>
+        <Footer/>
       </div>
     </div>
   );

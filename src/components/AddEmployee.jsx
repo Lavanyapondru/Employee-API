@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Navbar from "./Navabr"; // corrected spelling
 import { useNavigate } from "react-router-dom";
+import Footer from "./Footer";
 
 function AddEmployee() {
   let nav = useNavigate();
@@ -77,7 +78,7 @@ function AddEmployee() {
       <Navbar />
       <div className="container my-5">
         <div className="card shadow-lg  rounded-4 mb-5 employee-form-card">
-          <div className="card-header bg-dark text-light text-center py-3 bg-aqua">
+          <div className="card-header bg-dark text-light text-center py-3 bg-aqua navbar">
             <h2 className="mb-0">Add Employee</h2>
           </div>
           <div className="card-body">
@@ -157,6 +158,10 @@ function AddEmployee() {
           </div>
         </div>
       </div>
+      <div className="footeradd">
+        <Footer/>
+      </div>
+     
     </div>
   );
 }

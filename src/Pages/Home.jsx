@@ -1,6 +1,7 @@
   import axios from "axios";
   import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Footer from "../components/Footer";
 
   function Home() {
     const [employees, setEmployees] = useState([]);
@@ -91,7 +92,7 @@ let nav = useNavigate();
           <>
             <div className="row justify-content-center align-items-center">
               {(showAll ? employees : employees.slice(0, 6)).map((emp) => (
-                <div key={emp.id} className="col-md-4 mb-5">
+                <div key={emp.id} className="col-md-4 col-sm-6 mb-5">
                   <div className="card employee-card shadow-sm h-100">
                     <div className="card-body">
                       <p className="card-title text-dark">
@@ -119,6 +120,7 @@ let nav = useNavigate();
           </>
         )}
       </div>
+      <Footer/>
    
           </div>
 
