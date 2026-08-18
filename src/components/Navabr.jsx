@@ -1,11 +1,21 @@
+import { Link } from "react-router-dom";
+
 function Navbar() {
+  const isAuthenticated =
+    localStorage.getItem("token") &&
+    localStorage.getItem("username") &&
+    localStorage.getItem("password"); 
+
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div className="container">
-          <h1 className="navbar-brand">Employee Portal</h1>
+      {/* <div className="container"> */}
+       <nav className="navbar navbar-expand-lg navbar-light">
+      <div className="container">
+        <Link className="navbar-brand" to="/">
+          MyApp
+        </Link>
 
-          {/* Hamburger button */}
+         {/* Hamburger button */}
           <button
             className="navbar-toggler"
             type="button"
@@ -18,22 +28,47 @@ function Navbar() {
             <span className="navbar-toggler-icon"></span>
           </button>
 
-          {/* Collapsible nav links */}
-          <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav ms-auto">
-              <li className="nav-item">
-                <a className="nav-link text-light" href="/">Home</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link text-light" href="/addemployee">Add Employee</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link text-light" href="/viewemployee">View Employee</a>
-              </li>
-            </ul>
-          </div>
+        <div className="collapse navbar-collapse">
+          <ul className="navbar-nav ms-auto">
+            {/* Always visible links */}
+            <li className="nav-item">
+              <a href="/" className="nav-link">
+                Home
+              </a>
+            </li>
+             <li className="nav-item">
+              <a className="nav-link" href="/authentication">
+              Login
+              </a>
+            </li>
+ 
+
+
+            {/* ✅ Only visible when authenticated */}
+            {isAuthenticated && (
+              <>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/addemployee">
+                    Add Employee
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/viewemployee">
+                    View Employee
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/dashboard">
+                  Dash Board
+                  </Link>
+                </li>
+              </>
+            )}
+          </ul>
         </div>
-      </nav>
+      </div>
+    </nav>
+    {/* </div> */}
     </div>
   );
 }

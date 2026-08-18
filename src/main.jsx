@@ -9,6 +9,8 @@ import Home from './Pages/Home';
 import ViewEmployee from './components/ViewEmployee';
 import AddEmployee from './components/AddEmployee';
 import ViewSingleEmployee from './components/ViewSingleEmployee';
+import Authentication from './components/Authentication';
+import Dashboard from './components/Dashboard';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -22,9 +24,18 @@ const router = createBrowserRouter([
     path: "/addemployee",
     element: <AddEmployee/>,
   },
+ 
   {
     path: "/view/:id",
     element: <ViewSingleEmployee/>,
+  },
+   {
+    path: "/authentication",
+    element: <Authentication/>,
+  },
+  {
+    path: "/dashboard",
+    element: <Dashboard/>,
   },
 ]);
 

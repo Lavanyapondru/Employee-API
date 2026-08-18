@@ -25,6 +25,10 @@ body {
 .nav-link:hover {
   color: rgb(105, 105, 104) !important; /* deep teal hover */
 }
+.navbar-toggler {
+  color: rgb(238, 234, 234) !important;
+}
+
 .weight {
     font-weight: 450 !important;
 }
@@ -143,7 +147,7 @@ header p {
 }
 
 .footer {
-  margin-top: 160px;
+  margin-top: 170px;
 }
 .footeradd {
   margin-top: 80px;
@@ -170,5 +174,8 @@ header p {
 
 .head {
   margin-left: 40px;
+}
+.formauthentication {
+  width: 85% !important;
 }
 }

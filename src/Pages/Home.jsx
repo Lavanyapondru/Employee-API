@@ -2,6 +2,7 @@
   import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
+import Navbar from "../components/Navabr";
 
   function Home() {
     const [employees, setEmployees] = useState([]);
@@ -27,39 +28,7 @@ let nav = useNavigate();
     }
       return ( 
           <div>
-              <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-          <div className="container">
-            <h1 className="navbar-brand">Employee Portal</h1>
-
-            {/* Hamburger button */}
-            <button
-              className="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarNav"
-              aria-controls="navbarNav"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span className="navbar-toggler-icon"></span>
-            </button>
-
-            {/* Collapsible nav links */}
-            <div className="collapse navbar-collapse" id="navbarNav">
-              <ul className="navbar-nav ms-auto">
-                <li className="nav-item">
-                  <a className="nav-link text-light" href="/">Home</a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link text-light" href="/addemployee">Add Employee</a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link text-light" href="/viewemployee">View Employee</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
+             <Navbar/>
 
         {/* Banner */}
         <header className="bg-light text-dark py-5 text-center">
@@ -81,10 +50,19 @@ let nav = useNavigate();
       <div className="container my-5">
         <div className="text-center mt-2 d-flex justify-content-between mb-5">
         <h2 className="text-center">Employee Records</h2>
-       <button className="btn btn-aqua" onClick={() => setShowAll(!showAll)}>
-
-                {showAll ? "Show Less Records" : "View All Employee Records"}
-              </button>
+   <button
+  className="btn btn-aqua login"
+  onClick={() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      setShowAll(!showAll); // ✅ show records if logged in
+    } else {
+      nav("/authentication"); // ✅ redirect if not logged in
+    }
+  }}
+>
+  {showAll ? "Show Less Records" : "View All Employee Records"}
+</button>
             </div>
         {loading ? (
           <p className="text-center fs-5 text-muted">Loading employee Records...</p>
