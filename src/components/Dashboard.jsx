@@ -15,9 +15,9 @@ function Dashboard() {
         <div>
             <Navbar/>
             <div className="container">
-                <div className="d-flex justify-content-between my-5">
+                <div className="d-flex justify-content-between my-5 dashboard">
                 <h1 className="text-center fst-italic">Welcome to the Admin Dashboard</h1>
-                <button onClick={handlelogout}  className="btn btn-info btn-aqua text-decoration-none text-center mt-3 btn-lg">Log Out</button>
+                <button onClick={handlelogout}  className="logout btn btn-info btn-aqua text-decoration-none text-center mt-3">Log Out</button>
                 
 
                 </div>

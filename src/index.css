@@ -25,9 +25,7 @@ body {
 .nav-link:hover {
   color: rgb(105, 105, 104) !important; /* deep teal hover */
 }
-.navbar-toggler {
-  color: rgb(238, 234, 234) !important;
-}
+
 
 .weight {
     font-weight: 450 !important;
@@ -177,5 +175,11 @@ header p {
 }
 .formauthentication {
   width: 85% !important;
+}
+.dashboard {
+  display: block !important;
+}
+.logout {
+  margin-left: 150px !important;
 }
 }
