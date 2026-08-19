@@ -8,9 +8,19 @@ import Footer from "./Footer";
 function ViewEmployee() {
   const [employees, setEmployees] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // ✅ login state
   const navigate = useNavigate();
 
   useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      // alert("Please login first"); // 🚫 show alert
+      navigate("/authentication"); // redirect to login
+    } else {
+      setIsLoggedIn(true); // ✅ allow page
+    }
+
+    // fetch employees
     setLoading(true);
     axios
       .get("https://6a7aab0d8c69b3eb4a175f37.mockapi.io/workersupdates")
@@ -22,7 +32,7 @@ function ViewEmployee() {
         console.error("Error fetching data:", err);
         setLoading(false);
       });
-  }, []);
+  }, [navigate]);
 
   const deleteEmployee = (id) => {
     if (window.confirm("Are you sure you want to delete this employee?")) {
@@ -94,49 +104,51 @@ function ViewEmployee() {
     <div>
       <Navbar />
       <div className="container my-5">
-        {loading ? (
-          <p className="text-center">Loading employees...</p>
-        ) : (
-          <MaterialReactTable
-            columns={columns}
-            data={employees}
-            enablePagination
-            enableSorting
-            enableColumnFilters
-            muiTableProps={{
-              sx: {
-                border: "2px solid #80deea",
-                backgroundColor: "#ffffff",
-              },
-            }}
-            muiTableHeadCellProps={{
-              sx: {
-                backgroundColor: "#4dd0e1",
-                color: "#ffffff",
-                fontWeight: "bold",
-                fontSize: "1rem",
-              },
-            }}
-            muiTableBodyCellProps={{
-              sx: {
-                fontSize: "0.95rem",
-                padding: "12px",
-                color: "#004d40",
-              },
-            }}
-            muiTableBodyRowProps={{
-              sx: {
-                "&:hover": {
-                  backgroundColor: "#e0f7fa",
-                },
-              },
-            }}
-          />
+        {isLoggedIn && (
+          <>
+            {loading ? (
+              <p className="text-center">Loading employees...</p>
+            ) : (
+              <MaterialReactTable
+                columns={columns}
+                data={employees}
+                enablePagination
+                enableSorting
+                enableColumnFilters
+                muiTableProps={{
+                  sx: {
+                    border: "2px solid #80deea",
+                    backgroundColor: "#ffffff",
+                  },
+                }}
+                muiTableHeadCellProps={{
+                  sx: {
+                    backgroundColor: "#4dd0e1",
+                    color: "#ffffff",
+                    fontWeight: "bold",
+                    fontSize: "1rem",
+                  },
+                }}
+                muiTableBodyCellProps={{
+                  sx: {
+                    fontSize: "0.95rem",
+                    padding: "12px",
+                    color: "#004d40",
+                  },
+                }}
+                muiTableBodyRowProps={{
+                  sx: {
+                    "&:hover": {
+                      backgroundColor: "#e0f7fa",
+                    },
+                  },
+                }}
+              />
+            )}
+          </>
         )}
       </div>
-      <div>
-        <Footer/>
-      </div>
+      <Footer />
     </div>
   );
 }

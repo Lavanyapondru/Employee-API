@@ -1,51 +1,31 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Navbar() {
-  const isAuthenticated =
-    localStorage.getItem("token") &&
-    localStorage.getItem("username") &&
-    localStorage.getItem("password"); 
+  const navigate = useNavigate();
+  const token = localStorage.getItem("token");
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("username");
+    navigate("/authentication");
+  };
 
   return (
-    <div>
-      {/* <div className="container"> */}
-       <nav className="navbar navbar-expand-lg navbar-light">
+    
+    <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
       <div className="container">
-        <Link className="navbar-brand" to="/">
-          MyApp
+        <Link className="navbar-brand fw-bold text-info" to="/">
+          Employee Management
         </Link>
-
-         {/* Hamburger button */}
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-
-        <div className="collapse navbar-collapse" id="navbarNav">
+        <div className="collapse navbar-collapse">
           <ul className="navbar-nav ms-auto">
-            {/* Always visible links */}
             <li className="nav-item">
-              <a href="/" className="nav-link">
+              <Link className="nav-link" to="/">
                 Home
-              </a>
+              </Link>
             </li>
-             <li className="nav-item">
-              <a className="nav-link" href="/authentication">
-              Login
-              </a>
-            </li>
- 
 
-
-            {/* ✅ Only visible when authenticated */}
-            {isAuthenticated && (
+            {token && (
               <>
                 <li className="nav-item">
                   <Link className="nav-link" to="/addemployee">
@@ -54,22 +34,36 @@ function Navbar() {
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/viewemployee">
-                    View Employee
+                    View Employees
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/dashboard">
-                  Dash Board
+                    Dash Board
                   </Link>
                 </li>
+                <li className="nav-item">
+                  <button
+                    className="btn btn-link nav-link text-danger"
+                    onClick={handleLogout}
+                  >
+                    Logout
+                  </button>
+                </li>
               </>
+            )}
+
+            {!token && (
+              <li className="nav-item">
+                <Link className="nav-link" to="/authentication">
+                  Login
+                </Link>
+              </li>
             )}
           </ul>
         </div>
       </div>
     </nav>
-    {/* </div> */}
-    </div>
   );
 }
 
