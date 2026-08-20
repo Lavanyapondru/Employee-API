@@ -11,32 +11,24 @@ import AddEmployee from './components/AddEmployee';
 import ViewSingleEmployee from './components/ViewSingleEmployee';
 import Authentication from './components/Authentication';
 import Dashboard from './components/Dashboard';
+import Mainlayout from './components/Mainlayout';
 const router = createBrowserRouter([
+
+
   {
     path: "/",
-    element: <Home/>,
+    element: <Mainlayout/>,   // one layout for all
+    children: [
+      { index: true, element: <Home /> },
+      { path: "addemployee", element: <AddEmployee/> },
+      { path: "viewemployee", element: <ViewEmployee/> },
+      { path: "view/:id", element: <ViewSingleEmployee /> },
+      { path: "authentication", element: <Authentication/> },
+      { path: "dashboard", element: <Dashboard/> },
+
+    ],
   },
-   {
-    path: "/viewemployee",
-    element: <ViewEmployee/>,
-  },
-   {
-    path: "/addemployee",
-    element: <AddEmployee/>,
-  },
- 
-  {
-    path: "/view/:id",
-    element: <ViewSingleEmployee/>,
-  },
-   {
-    path: "/authentication",
-    element: <Authentication/>,
-  },
-  {
-    path: "/dashboard",
-    element: <Dashboard/>,
-  },
+
 ]);
 
 

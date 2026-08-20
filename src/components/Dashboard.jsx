@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import Navbar from "./Navabr";
+// import Navbar from "./Navabr";
 
 function Dashboard() {
     const nav = useNavigate();
@@ -13,7 +13,7 @@ function Dashboard() {
     }
     return ( 
         <div>
-            <Navbar/>
+            {/* <Navbar/> */}
             <div className="container">
   <div className="d-flex justify-content-between my-3 dashboard flex-column flex-lg-row">
     
@@ -38,8 +38,6 @@ function Dashboard() {
                 <div className="d-flex justify-content-between dashboard">
                 <h1 className="text-center fst-italic">Welcome to the Admin Dashboard</h1>
                 <button onClick={handlelogout}  className="logout btn btn-info btn-aqua text-decoration-none text-center mt-3">Log Out</button>
-                
-
                 </div>
             </div>
         </div>

@@ -143,12 +143,8 @@ header p {
  border: 2px solid skyblue;
  border-radius: 50px;
 }
-
-.footer {
-  margin-top: 170px;
-}
-.footeradd {
-  margin-top: 80px;
+.footerone {
+  margin-top: 170px !important;
 }
 @media screen and (min-width:320px) and (max-width:460px) {
   .employee-form-card {

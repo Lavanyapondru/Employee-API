@@ -1,8 +1,8 @@
   import axios from "axios";
   import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Footer from "../components/Footer";
-import Navbar from "../components/Navabr";
+// import Footer from "../components/Footer";
+// import Navbar from "../components/Navabr";
 
   function Home() {
     const [employees, setEmployees] = useState([]);
@@ -28,7 +28,7 @@ let nav = useNavigate();
     }
       return ( 
           <div>
-             <Navbar/>
+             {/* <Navbar/> */}
 
         {/* Banner */}
         <header className="bg-light text-dark py-5 text-center">
@@ -98,7 +98,7 @@ let nav = useNavigate();
           </>
         )}
       </div>
-      <Footer/>
+      {/* <Footer/> */}
    
           </div>
 

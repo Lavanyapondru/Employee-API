@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import Navbar from "./Navabr";
+// import Navbar from "./Navabr";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import Footer from "./Footer";
+// import Footer from "./Footer";
 
 function Authentication() {
     const nav = useNavigate();
@@ -43,7 +43,7 @@ setIsError(false);
     return ( 
         <div>
   
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="container">
         <h1 className="text-center fs-4 my-5">Token Based Authentication</h1>
         <div className="d-flex justify-content-center align-items-center">
@@ -91,9 +91,7 @@ setIsError(false);
           </form>
         </div>
       </div>
-   <div className="footer">
-    <Footer/>
-   </div>
+   
         </div>
      );
 }

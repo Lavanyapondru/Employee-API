@@ -1,9 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import Navbar from "./Navabr"; 
+// import Navbar from "./Navabr"; 
 import { MaterialReactTable } from "material-react-table";
 import { useNavigate } from "react-router-dom";
-import Footer from "./Footer";
+// import Footer from "./Footer";
 
 function ViewEmployee() {
   const [employees, setEmployees] = useState([]);
@@ -102,7 +102,7 @@ function ViewEmployee() {
 
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="container my-5">
         {isLoggedIn && (
           <>
@@ -148,7 +148,7 @@ function ViewEmployee() {
           </>
         )}
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import Navbar from "./Navabr"; 
+// import Navbar from "./Navabr"; 
 import { useNavigate } from "react-router-dom";
-import Footer from "./Footer";
+// import Footer from "./Footer";
 
 function AddEmployee() {
   const nav = useNavigate();
@@ -74,7 +74,7 @@ function AddEmployee() {
 
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="container my-5">
         {isLoggedIn && (
           <div className="card shadow-lg rounded-4 mb-5 employee-form-card">
@@ -167,7 +167,7 @@ function AddEmployee() {
           </div>
         )}
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

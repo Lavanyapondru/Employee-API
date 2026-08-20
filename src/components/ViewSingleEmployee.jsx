@@ -2,8 +2,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Footer from "./Footer";
-import Navbar from "./Navabr";
+// import Footer from "./Footer";
+// import Navbar from "./Navabr";
 
 function ViewEmployee() {
   const { id } = useParams();
@@ -32,7 +32,7 @@ function ViewEmployee() {
 
   return (
     <div>
-      <Navbar/>
+      {/* <Navbar/> */}
    
     <div className="d-flex flex-column ">
   
@@ -53,7 +53,7 @@ function ViewEmployee() {
         </div>
       </div>
 
-      <div className="footer"><Footer /></div>
+      {/* <div className="footer"><Footer /></div> */}
     </div>
      </div>
   );
